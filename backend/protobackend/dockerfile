@@ -1,0 +1,6 @@
+FROM python:3.8.6
+ENV PYTHONUNBUFFERED 1
+RUN mkdir/application_service
+WORKDIR /application_service
+ADD ./application_service/
+RUN pip3 install -r requirements.txt

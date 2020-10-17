@@ -1,0 +1,3 @@
+[submodule "django-angular-stack-study"]
+	path = django-angular-stack-study
+	url = https://github.com/TheRayOfSeasons/django-angular-stack-study.git
