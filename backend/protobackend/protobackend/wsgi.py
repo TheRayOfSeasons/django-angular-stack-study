@@ -9,8 +9,12 @@ https://docs.djangoproject.com/en/3.1/howto/deployment/wsgi/
 
 import os
 
+import django
 from django.core.wsgi import get_wsgi_application
+from websocket.middleware import websockets
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'protobackend.settings')
 
+django.setup()
 application = get_wsgi_application()
+application = websockets(application)

@@ -17,6 +17,11 @@ from django.contrib import admin
 from django.urls import include
 from django.urls import path
 
+from websocket.urls import websocket
+from users.views import IndexView
+from users.views import websocket_view
+from users.views import TestSocketView
+
 from rest_framework import routers
 
 
@@ -31,4 +36,7 @@ urlpatterns = [
     path('api/v1/', include((v1_api_urls, 'api_v1'), namespace='api_v1')),
     path('case/', include('cases.urls')),
     path('admin/', admin.site.urls),
+    path("", IndexView.as_view()),
+    websocket("ws/", websocket_view),
+    websocket("ws2/", TestSocketView.as_view()),
 ]
